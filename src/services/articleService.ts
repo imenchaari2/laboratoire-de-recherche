@@ -2,31 +2,32 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {GLOBAL} from '../app/app-config';
 import {Member} from '../models/member';
+import {Article} from '../models/article';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MemberService {
+export class ArticleService {
 
-  tab: Member[] = GLOBAL.DB.members;
+  tab: Article[] = GLOBAL.DB.articles;
   constructor(private httpClient: HttpClient) {
   }
 
 
-  saveMember(objectToSubmit: any): Promise<any> {
+  saveArticle(objectToSubmit: any): Promise<any> {
     // si j'ai la partie back
     // return this.httpClient.post('linktorestAPI',objectToSubmit).toPromise();
-    const memberToSave = {
+    const articleToSave = {
       ...objectToSubmit,
       id: objectToSubmit.id ?? (Math.random() * 100000).toString(),
       createdDate: objectToSubmit.createdDate ?? new Date().toISOString()
     };
-    this.tab = [memberToSave, ...this.tab.filter(item => item.id !== memberToSave.id)];
-    return new Promise(resolve => resolve(memberToSave));
+    this.tab = [articleToSave, ...this.tab.filter(item => item.id !== articleToSave.id)];
+    return new Promise(resolve => resolve(articleToSave));
 
   }
 
-  getMemberById(id: string): Promise<Member> {
+  getArticleById(id: string): Promise<Article> {
     // return this.httpClient.get<M
     return new Promise(resolve => resolve(this.tab.filter(item => item.id === id)[0] ?? null));
   }
@@ -36,7 +37,7 @@ export class MemberService {
     return new Promise(resolve => resolve());
   }
 
-  getAllMembers(): Promise<Member[]> {
+  getAllArticles(): Promise<Article[]> {
     return new Promise(resolve => resolve(this.tab));
   }
 }

@@ -14,12 +14,27 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from '@angular/common/http';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LayoutComponent } from './layout/layout.component';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { ToolsComponent } from './tools/tools.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembersComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    DialogComponent,
+    LayoutComponent,
+    ToolsComponent,
+    ArticlesComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +47,12 @@ import {HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule
 
   ],
   providers: [],
