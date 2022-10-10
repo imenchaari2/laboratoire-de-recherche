@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Member} from '../../models/member';
 import {Article} from '../../models/article';
 import {ArticleService} from '../../services/articleService';
 import {MatTableDataSource} from '@angular/material/table';
 import {DialogComponent} from '../dialog/dialog.component';
+import {SelectAuteurComponent} from '../select-auteur/select-auteur.component';
+import {MemberService} from '../../services/memberService';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-articles',
@@ -12,21 +15,32 @@ import {DialogComponent} from '../dialog/dialog.component';
 })
 export class ArticlesComponent implements OnInit {
   dataSource: MatTableDataSource<Article>;
-  constructor(private articleService: ArticleService) {
+  @Input() auteur!: string;
+
+
+  constructor(private articleService: ArticleService, private memberService: MemberService , private matDialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.articleService.tab);
   }
   displayedColumns: string[] = ['id', 'title', 'date', 'auteur', 'icone'];
   ngOnInit(): void {
   }
-  affect(id: string): void {
-    // const dialogRef = this.matDialog.open(DialogComponent, {});
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.memberService.delete(id).then(async () => {
-    //       await this.fetchDataSource();
-    //     });
-    //   }
-    // });
+  async fetchDataSource(): Promise<void> {
+    this.dataSource.data = await this.articleService.getAllArticles();
+  }
+  affect(article: any): void {
+    const dialogRef = this.matDialog.open(SelectAuteurComponent, {
+      // width: '450px',
+      // height: '450px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result.data)
+      if (result) {
+        this.articleService.updateArticle(article, result.data).then(async () => {
+          // await this.fetchDataSource();
+        });
+      }
+    });
 
   }
 

@@ -40,4 +40,17 @@ export class ArticleService {
   getAllArticles(): Promise<Article[]> {
     return new Promise(resolve => resolve(this.tab));
   }
+
+  updateArticle(objectToSubmit: any , auteur: string): Promise<any> {
+    objectToSubmit.auteur = auteur;
+    const articleToUpdate = {
+      ...objectToSubmit,
+      id: objectToSubmit.id ?? (Math.random() * 100000).toString(),
+      auteur: objectToSubmit.auteur,
+    };
+    this.tab = [articleToUpdate, ...this.tab.filter(item => item.id !== articleToUpdate.id)];
+    return new Promise(resolve => resolve(articleToUpdate));
+
+
+  }
 }

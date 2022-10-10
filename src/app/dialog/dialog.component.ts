@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -15,6 +15,8 @@ export class DialogComponent implements OnInit {
   title = 'are you sure ! ';
   cancel = 'cancel';
   confirm = 'confirm';
+
+
 
   ngOnInit(): void {
   }

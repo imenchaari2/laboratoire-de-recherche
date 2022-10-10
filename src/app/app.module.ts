@@ -11,7 +11,7 @@ import { MemberFormComponent } from './member-form/member-form.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app.routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
@@ -24,6 +24,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ToolsComponent } from './tools/tools.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
+import { SelectAuteurComponent } from './select-auteur/select-auteur.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { EventsComponent } from './events/events.component';
     LayoutComponent,
     ToolsComponent,
     ArticlesComponent,
-    EventsComponent
+    EventsComponent,
+    SelectAuteurComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,9 @@ import { EventsComponent } from './events/events.component';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule,
+    FormsModule
 
   ],
   providers: [],
