@@ -26,6 +26,8 @@ import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { SelectAuteurComponent } from './select-auteur/select-auteur.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatToolbarModule,
     MatMenuModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
 
   ],
   providers: [],

@@ -15,8 +15,6 @@ export class ArticleService {
 
 
   saveArticle(objectToSubmit: any): Promise<any> {
-    // si j'ai la partie back
-    // return this.httpClient.post('linktorestAPI',objectToSubmit).toPromise();
     const articleToSave = {
       ...objectToSubmit,
       id: objectToSubmit.id ?? (Math.random() * 100000).toString(),

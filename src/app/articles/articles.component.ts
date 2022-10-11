@@ -24,13 +24,13 @@ export class ArticlesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'date', 'auteur', 'icone'];
   ngOnInit(): void {
   }
-  async fetchDataSource(): Promise<void> {
-    this.dataSource.data = await this.articleService.getAllArticles();
-  }
+  // async fetchDataSource(): Promise<void> {
+  //   this.dataSource.data = await this.articleService.getAllArticles();
+  // }
   affect(article: any): void {
     const dialogRef = this.matDialog.open(SelectAuteurComponent, {
-      // width: '450px',
-      // height: '450px',
+      width: '250px',
+      height: '250px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

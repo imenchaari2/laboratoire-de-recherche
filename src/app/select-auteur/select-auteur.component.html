@@ -2,16 +2,26 @@
 <div mat-dialog-content>
   {{message}}</div>
 <div>
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group"
-    [(ngModel)]="auteur">
-    <div fxLayout="column" fxLayoutAlign="space-around start">
-    <mat-radio-button class="example-radio-button" *ngFor="let auteur of auteurs" [value]="auteur.name">
+<!--  <mat-radio-group-->
+<!--    aria-labelledby="example-radio-group-label"-->
+<!--    class="example-radio-group"-->
+<!--    [(ngModel)]="auteur">-->
+<!--    <div fxLayout="column" fxLayoutAlign="space-around start">-->
+<!--    <mat-radio-button class="example-radio-button" *ngFor="let auteur of auteurs" [value]="auteur.name">-->
+<!--      {{auteur.name}}-->
+<!--    </mat-radio-button>-->
+<!--    </div>-->
+<!--  </mat-radio-group>-->
+  <mat-select placeholder="Select your author"
+              matInput
+              [(ngModel)]="auteur"
+  >
+    <div>
+    <mat-option *ngFor="let auteur of auteurs" [value]="auteur.name">
       {{auteur.name}}
-    </mat-radio-button>
+    </mat-option>
     </div>
-  </mat-radio-group>
+  </mat-select>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>{{cancel}}</button>
