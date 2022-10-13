@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="ONSUB()">
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field fxFlex.gt-xs="100" appearance="outline">
+      <input
+        matInput
+        placeholder="Date"
+        [matDatepicker]="date"
+        formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]='date'></mat-datepicker-toggle>
+      <mat-datepicker #date ></mat-datepicker>
+    </mat-form-field>
+  </p>
+  <button mat-raised-button color="primary" type="submit" >submit</button>
+</form>

@@ -4,6 +4,7 @@ import {MemberFormComponent} from './member-form/member-form.component';
 import {EventsComponent} from './events/events.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {ToolsComponent} from './tools/tools.component';
+import {ArticleFormComponent} from './article-form/article-form.component';
 
 export const routes: Routes = [
   {
@@ -32,14 +33,24 @@ export const routes: Routes = [
     component: EventsComponent,
   },
   {
-    path: 'create' ,
+    path: 'createMember' ,
     pathMatch: 'full',
     component: MemberFormComponent,
+  },
+  {
+    path: 'createArticle' ,
+    pathMatch: 'full',
+    component: ArticleFormComponent,
   },
   {
     path: 'members/:id/edit' ,
     pathMatch: 'full',
     component: MemberFormComponent,
+  },
+  {
+    path: 'articles/:id/edit' ,
+    pathMatch: 'full',
+    component: ArticleFormComponent,
   },
   {
     path: '**',

@@ -26,8 +26,13 @@ import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { SelectAuteurComponent } from './select-auteur/select-auteur.component';
 import {MatRadioModule} from '@angular/material/radio';
-import {MatOptionModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { ArticleFormComponent } from './article-form/article-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {FlexModule} from '@angular/flex-layout/typings/flex';
+import {ExtendedModule} from '@angular/flex-layout/typings/extended';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,8 @@ import {MatSelectModule} from '@angular/material/select';
     ToolsComponent,
     ArticlesComponent,
     EventsComponent,
-    SelectAuteurComponent
+    SelectAuteurComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatRadioModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FlexLayoutModule,
 
   ],
   providers: [],

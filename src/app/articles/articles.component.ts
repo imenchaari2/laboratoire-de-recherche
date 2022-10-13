@@ -24,9 +24,9 @@ export class ArticlesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'date', 'auteur', 'icone'];
   ngOnInit(): void {
   }
-  // async fetchDataSource(): Promise<void> {
-  //   this.dataSource.data = await this.articleService.getAllArticles();
-  // }
+  async fetchDataSource(): Promise<void> {
+    this.dataSource.data = await this.articleService.getAllArticles();
+  }
   affect(article: any): void {
     const dialogRef = this.matDialog.open(SelectAuteurComponent, {
       width: '250px',
@@ -43,5 +43,15 @@ export class ArticlesComponent implements OnInit {
     });
 
   }
+  delete(id: string): void {
+    const dialogRef = this.matDialog.open(DialogComponent, {});
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.articleService.delete(id).then(async () => {
+          await this.fetchDataSource();
+        });
+      }
+    });
 
+  }
 }
