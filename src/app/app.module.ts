@@ -33,6 +33,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FlexModule} from '@angular/flex-layout/typings/flex';
 import {ExtendedModule} from '@angular/flex-layout/typings/extended';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     ArticlesComponent,
     EventsComponent,
     SelectAuteurComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDatepickerModule,
     MatNativeDateModule,
     FlexLayoutModule,
+    MatCardModule,
 
   ],
   providers: [],

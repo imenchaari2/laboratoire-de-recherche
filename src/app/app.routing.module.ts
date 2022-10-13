@@ -5,12 +5,18 @@ import {EventsComponent} from './events/events.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {ToolsComponent} from './tools/tools.component';
 import {ArticleFormComponent} from './article-form/article-form.component';
+import {LoginComponent} from './login/login.component';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'members'
+    redirectTo: 'login'
+  },
+  {
+    path: 'login' ,
+    pathMatch: 'full',
+    component: LoginComponent,
   },
   {
     path: 'members' ,
